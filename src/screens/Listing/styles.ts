@@ -20,6 +20,10 @@ export const AppName = styled.Text`
 `
 export const ButtonSearch = styled.TouchableOpacity`
 `
+export const ButtonBack = styled.TouchableOpacity.attrs({
+  hitSlop: { top: 20, bottom: 20, left: 50, right: 50 }
+})`
+`
 export const Content = styled.View`
   flex: 1;
   padding: 0 10px;

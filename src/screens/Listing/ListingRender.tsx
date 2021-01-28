@@ -16,7 +16,7 @@ import {
   Loading
 } from './styles'
 
-type IListing = {
+export type IListing = {
   books: IBook[],
   loading: boolean,
 }
@@ -32,24 +32,23 @@ const Listing: React.FC<IListing> = ({ books, loading }: IListing) => {
         </ButtonSearch>
       </Header>
       <Content>
-
-      <ListBooks
-        data={books}
-        keyExtractor={item => item.id}
-        numColumns={3}
-        renderItem={({ item }) => <Book book={item} />}
-        ListFooterComponent={() => {
-          if (loading) {
-            return (<Loading size="large" color="#000"/>)
-          } else {
-            return (
-              <ButtonLoadMore>
-                <ButtonLoadMoreText>Carregar Mais</ButtonLoadMoreText>
-              </ButtonLoadMore>
-            )
-          }
-        }}
-      >
+        <ListBooks
+          data={books}
+          keyExtractor={item => item.id}
+          numColumns={3}
+          renderItem={({ item }) => <Book book={item} />}
+          ListFooterComponent={() => {
+            if (loading) {
+              return (<Loading size="large" color="#000"/>)
+            } else {
+              return (
+                <ButtonLoadMore>
+                  <ButtonLoadMoreText>Carregar Mais</ButtonLoadMoreText>
+                </ButtonLoadMore>
+              )
+            }
+          }}
+        >
       </ListBooks>
       </Content>
     </Container>
