@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import { fonts } from '../../assets/styles'
 
 export const Container = styled.SafeAreaView`
   background-color: #ffdd0d;
@@ -21,11 +22,35 @@ export const ButtonSearch = styled.TouchableOpacity`
 `
 export const Content = styled.View`
   flex: 1;
-  padding: 0 10px
+  padding: 0 10px;
 `
 export const ListBooks = styled.FlatList.attrs({
+  showsHorizontalScrollIndicator: false,
+  showsVerticalScrollIndicator: false,
+  ListFooterComponentStyle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10
+  },
   contentContainerStyle: {
     justifyContent: 'center'
   }
 })`
+flex: 1;
+`
+export const ButtonLoadMore = styled.TouchableOpacity`
+  align-items: center;
+  justify-content: center;
+  background-color: #211f2a;
+  height: 45px;
+  width: 180px;
+  border-radius: 25px;
+`
+
+export const ButtonLoadMoreText = styled.Text`
+  color: #fff;
+  font-family: ${fonts.fontRegular};
+`
+
+export const Loading = styled.ActivityIndicator`
 `

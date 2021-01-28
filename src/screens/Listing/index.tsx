@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+
+import api from '../../services/api'
 
 import LinstingRender from './ListingRender'
 
@@ -8,21 +10,26 @@ export type IBook = {
 }
 
 const Listing: React.FC = () => {
-  const [getBooks, setBooks] = useState<IBook[]>([
-    { id: '00', thumbnail: 'Relâmpago McQueen' },
-    { id: '01', thumbnail: 'Agente Tom Mate' },
-    { id: '02', thumbnail: 'Doc Hudson' },
-    { id: '03', thumbnail: 'Cruz Ramirez' },
-    { id: '04', thumbnail: 'Cruz Ramirez' },
-    { id: '05', thumbnail: 'Cruz Ramirez' },
-    { id: '06', thumbnail: 'Cruz Ramirez' },
-    { id: '07', thumbnail: 'Cruz Ramirez' },
-    { id: '08', thumbnail: 'Cruz Ramirez' },
-    { id: '08', thumbnail: 'Cruz Ramirez' },
-    { id: '08', thumbnail: 'Cruz Ramirez' },
-    { id: '08', thumbnail: 'Cruz Ramirez' }
-  ])
-  return <LinstingRender books={getBooks} />
+  const [getLoadingScreen, setLoadingScreen] = useState(true)
+  const [getBooks, setBooks] = useState<IBook[]>([])
+  const [getTerm, setTerm] = useState('harry potter')
+
+  async function fetchVolumes () {
+    try {
+      const response = await api.get(`/volumes?q=${getTerm}`)
+      const { items } = response.data
+      setBooks(items)
+    } catch (err) {}
+    setLoadingScreen(false)
+  }
+
+  useEffect(() => {
+    fetchVolumes()
+  }, [])
+
+  return (
+    <LinstingRender books={getBooks} loading={getLoadingScreen} />
+  )
 }
 
 export default Listing

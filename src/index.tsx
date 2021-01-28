@@ -7,7 +7,7 @@ const src: React.FC = () => {
   return (
     <>
     <StatusBar
-      barStyle="light-content"
+      barStyle="dark-content"
       hidden={false}
       backgroundColor="#f0d10f"
     />

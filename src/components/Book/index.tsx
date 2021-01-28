@@ -2,10 +2,12 @@ import React from 'react'
 
 import { BookButton, BookThumbnail } from './styles'
 
-const Book: React.FC = () => {
+const Book: React.FC = ({ book }) => {
+  const thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : 'https://www.virago.co.uk/wp-content/uploads/2018/07/missingbook.png'
+
   return (
     <BookButton>
-      <BookThumbnail style={{ height: 140, width: 95 }} source={{ uri: 'http://books.google.com/books/content?id=s7FDoirquD4C&printsec=frontcover&img=1&zoom=1&source=gbs_api' }} />
+      <BookThumbnail style={{ height: 140, width: 95 }} source={{ uri: thumbnail }} />
     </BookButton>
   )
 }

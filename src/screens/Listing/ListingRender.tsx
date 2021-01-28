@@ -10,14 +10,18 @@ import {
   AppName,
   ButtonSearch,
   Content,
-  ListBooks
+  ListBooks,
+  ButtonLoadMore,
+  ButtonLoadMoreText,
+  Loading
 } from './styles'
 
 type IListing = {
-  books: IBook[]
+  books: IBook[],
+  loading: boolean,
 }
 
-const Listing: React.FC<IListing> = ({ books }) => {
+const Listing: React.FC<IListing> = ({ books, loading }: IListing) => {
   return (
     <Container>
       <Header>
@@ -33,8 +37,17 @@ const Listing: React.FC<IListing> = ({ books }) => {
         data={books}
         keyExtractor={item => item.id}
         numColumns={3}
-        renderItem={({ item }) => {
-          return <Book />
+        renderItem={({ item }) => <Book book={item} />}
+        ListFooterComponent={() => {
+          if (loading) {
+            return (<Loading size="large" color="#000"/>)
+          } else {
+            return (
+              <ButtonLoadMore>
+                <ButtonLoadMoreText>Carregar Mais</ButtonLoadMoreText>
+              </ButtonLoadMore>
+            )
+          }
         }}
       >
       </ListBooks>
