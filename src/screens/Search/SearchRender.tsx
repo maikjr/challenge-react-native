@@ -24,9 +24,10 @@ export type ISearch = {
   books: IBook[],
   loading: boolean,
   setTerm: () => void,
+  setPage: () => void,
 }
 
-const Search: React.FC<ISearch> = ({ books, loading, setTerm }: ISearch) => {
+const Search: React.FC<ISearch> = ({ books, loading, setTerm, setPage }: ISearch) => {
   const navigation = useNavigation()
 
   return (
@@ -49,7 +50,7 @@ const Search: React.FC<ISearch> = ({ books, loading, setTerm }: ISearch) => {
           if (loading) {
             return (<Loading size="large" color="#000"/>)
           } else if (books.length) {
-            return <LoadMoreButton onPress={() => alert('teste')} />
+            return <LoadMoreButton onPress={setPage} />
           } else {
             return (<></>)
           }

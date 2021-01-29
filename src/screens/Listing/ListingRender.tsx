@@ -1,5 +1,6 @@
 import React from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
+import { useNavigation } from '@react-navigation/native'
 
 import Book from '../../components/Book'
 import LoadMoreButton from '../../components/LoadMoreButton'
@@ -18,15 +19,18 @@ import {
 export type IListing = {
   books: IBook[],
   loading: boolean,
+  setPage: () => void
 }
 
-const Listing: React.FC<IListing> = ({ books, loading }: IListing) => {
+const Listing: React.FC<IListing> = ({ books, loading, setPage }: IListing) => {
+  const navigation = useNavigation()
+
   return (
     <Container>
       <Header>
         <Icon name="menu-outline" size={25} color="#463d06" />
         <AppName>Design Books</AppName>
-        <ButtonSearch>
+        <ButtonSearch onPress={() => navigation.navigate('Search')}>
           <Icon name="md-search-outline" size={25} color="#463d06" />
         </ButtonSearch>
       </Header>
@@ -40,7 +44,7 @@ const Listing: React.FC<IListing> = ({ books, loading }: IListing) => {
             if (loading) {
               return (<Loading size="large" color="#000"/>)
             } else {
-              return <LoadMoreButton onPress={() => alert('teste')} />
+              return <LoadMoreButton onPress={setPage} />
             }
           }}
         >
