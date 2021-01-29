@@ -3,14 +3,11 @@ import React, { useState, useEffect } from 'react'
 import api from '../../services/api'
 import SearchRender from './SearchRender'
 
-type IBook = {
-  id: string;
-  thumbnail: string;
-}
+import { IBooks } from '../../types/IBooks'
 
 const Search: React.FC = () => {
   const [getLoadingScreen, setLoadingScreen] = useState(false)
-  const [getBooks, setBooks] = useState<IBook[]>([])
+  const [getBooks, setBooks] = useState<IBooks[]>([])
   const [getTerm, setTerm] = useState('')
   const [getPage, setPage] = useState(0)
 
@@ -49,7 +46,7 @@ const Search: React.FC = () => {
   return <SearchRender
     books={getBooks}
     loading={getLoadingScreen}
-    setTerm={setTerm}
+    setTerm={(term) => setTerm(term)}
     setPage={() => setPage(getPage + 1)}
     />
 }

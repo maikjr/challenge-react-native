@@ -3,6 +3,8 @@ import { Linking } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { useNavigation } from '@react-navigation/native'
 
+import { IBooks } from '../../types/IBooks'
+
 import {
   Container,
   Content,
@@ -28,7 +30,8 @@ import {
   Description
 } from './styles'
 
-const Details: React.FC = ({ book }) => {
+const Details: React.FC<IBooks> = (props: IBooks) => {
+  const { book } = props
   const [getRating, setRating] = useState(book.volumeInfo.ratingsCount)
   const [getFavorite, setFavorite] = useState(false)
   const navigation = useNavigation()

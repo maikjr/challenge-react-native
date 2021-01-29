@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 
 import Book from '../../components/Book'
 import LoadMoreButton from '../../components/LoadMoreButton'
-import { IBook } from './index'
+import { IBooks } from '../../types/IBooks'
 
 import {
   Container,
@@ -17,7 +17,7 @@ import {
 } from './styles'
 
 export type IListing = {
-  books: IBook[],
+  books: IBooks[],
   loading: boolean,
   setPage: () => void
 }

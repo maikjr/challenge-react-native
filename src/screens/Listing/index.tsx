@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react'
 
 import api from '../../services/api'
+import { IBooks } from '../../types/IBooks'
 
 import ListingRender from './ListingRender'
 
-export type IBook = {
-  id: string;
-  thumbnail: string;
-}
-
 const Listing: React.FC = () => {
   const [getLoadingScreen, setLoadingScreen] = useState(true)
-  const [getBooks, setBooks] = useState<IBook[]>([])
+  const [getBooks, setBooks] = useState<IBooks[]>([])
   const [getPage, setPage] = useState(0)
 
   useEffect(() => {
