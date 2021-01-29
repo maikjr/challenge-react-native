@@ -18,7 +18,7 @@ const Listing: React.FC = () => {
       try {
         const response = await api.get('/volumes?q=harry potter')
         const { items } = response.data
-        setBooks(items)
+        setBooks(getBooks.concat(items))
       } catch (err) {}
       setLoadingScreen(false)
     }

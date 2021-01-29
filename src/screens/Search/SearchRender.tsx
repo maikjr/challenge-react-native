@@ -1,9 +1,10 @@
 import React from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
+import { useNavigation } from '@react-navigation/native'
 
-import { IBook } from '../Listing'
 import Book from '../../components/Book'
 import LoadMoreButton from '../../components/LoadMoreButton'
+import { IBook } from '../Listing'
 
 import {
   Container,
@@ -26,10 +27,12 @@ export type ISearch = {
 }
 
 const Search: React.FC<ISearch> = ({ books, loading, setTerm }: ISearch) => {
+  const navigation = useNavigation()
+
   return (
     <Container>
       <Header>
-        <ButtonBack>
+        <ButtonBack onPress={() => navigation.goBack()}>
           <Icon name="arrow-back-outline" size={25} color="#463d06" />
         </ButtonBack>
         <SearchForm>

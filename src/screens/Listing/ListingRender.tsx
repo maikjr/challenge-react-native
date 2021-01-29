@@ -1,9 +1,9 @@
 import React from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-import { IBook } from './index'
 import Book from '../../components/Book'
 import LoadMoreButton from '../../components/LoadMoreButton'
+import { IBook } from './index'
 
 import {
   Container,

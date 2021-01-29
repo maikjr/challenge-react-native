@@ -18,13 +18,13 @@ const Search: React.FC = () => {
     try {
       const response = await api.get(`/volumes?q=${getTerm}`)
       const { items } = response.data
-      setBooks(getBooks.concat(items))
+      setBooks(items)
     } catch (err) {}
     setLoadingScreen(false)
   }
 
   useEffect(() => {
-    if (getTerm.length > 2) {
+    if (getTerm.length > 4) {
       searchVolumes()
     }
   }, [getTerm])

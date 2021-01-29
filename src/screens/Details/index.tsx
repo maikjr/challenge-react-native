@@ -1,14 +1,11 @@
-import React from 'react';
-import { View } from 'react-native';
+import React from 'react'
 
-import { Container } from './styles';
+import DetailsRender from './DetailsRender'
 
-const Details: React.FC = () => {
-  return (
-    <Container>
-      
-    </Container>
-  );
+const Details: React.FC = ({ route }) => {
+  const { book } = route.params
+
+  return <DetailsRender book={book}/>
 }
 
-export default Details;
+export default Details
