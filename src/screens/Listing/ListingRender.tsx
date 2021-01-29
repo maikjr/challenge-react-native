@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 import { IBook } from './index'
 import Book from '../../components/Book'
+import LoadMoreButton from '../../components/LoadMoreButton'
 
 import {
   Container,
@@ -11,8 +12,6 @@ import {
   ButtonSearch,
   Content,
   ListBooks,
-  ButtonLoadMore,
-  ButtonLoadMoreText,
   Loading
 } from './styles'
 
@@ -41,11 +40,7 @@ const Listing: React.FC<IListing> = ({ books, loading }: IListing) => {
             if (loading) {
               return (<Loading size="large" color="#000"/>)
             } else {
-              return (
-                <ButtonLoadMore>
-                  <ButtonLoadMoreText>Carregar Mais</ButtonLoadMoreText>
-                </ButtonLoadMore>
-              )
+              return <LoadMoreButton onPress={() => alert('teste')} />
             }
           }}
         >

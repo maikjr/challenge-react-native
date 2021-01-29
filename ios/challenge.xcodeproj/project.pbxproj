@@ -19,6 +19,9 @@
 		6CB6778FB6F8E8B8AABB93E0 /* libPods-challenge-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2401F528AC7D078023818E8E /* libPods-challenge-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8FD899EA8745A322B985A907 /* libPods-challenge-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD22A251B2E3AF990E0D999 /* libPods-challenge-tvOSTests.a */; };
+		BE348CDF25C3A5DC00EC17BA /* Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33A59BD0171641C3A0733D77 /* Bold.ttf */; };
+		BE348CE025C3A5DC00EC17BA /* Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFAA68C15D9147CA8B6DCF86 /* Medium.ttf */; };
+		BE348CE125C3A5DC00EC17BA /* Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1AE9A0FECA84C7CA24F0D89 /* Regular.ttf */; };
 		C784FF6F36992566608E2DF2 /* libPods-challenge-challengeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 556E5292230B55ED7658C665 /* libPods-challenge-challengeTests.a */; };
 /* End PBXBuildFile section */
 
@@ -386,6 +389,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE348CDF25C3A5DC00EC17BA /* Bold.ttf in Resources */,
+				BE348CE025C3A5DC00EC17BA /* Medium.ttf in Resources */,
+				BE348CE125C3A5DC00EC17BA /* Regular.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

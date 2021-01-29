@@ -2,6 +2,7 @@ import React from 'react'
 import { StatusBar } from 'react-native'
 
 import Listing from './screens/Listing'
+import Search from './screens/Search'
 
 const src: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ const src: React.FC = () => {
       hidden={false}
       backgroundColor="#f0d10f"
     />
-    <Listing />
+    <Search />
     </>
   )
 }

@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 import { IBook } from '../Listing'
 import Book from '../../components/Book'
+import LoadMoreButton from '../../components/LoadMoreButton'
 
 import {
   Container,
@@ -10,8 +11,6 @@ import {
   ButtonBack,
   Content,
   ListBooks,
-  ButtonLoadMore,
-  ButtonLoadMoreText,
   Loading
 } from '../Listing/styles'
 
@@ -23,9 +22,10 @@ import {
 export type ISearch = {
   books: IBook[],
   loading: boolean,
+  setTerm: () => void,
 }
 
-const Search: React.FC<ISearch> = ({ books, loading }: ISearch) => {
+const Search: React.FC<ISearch> = ({ books, loading, setTerm }: ISearch) => {
   return (
     <Container>
       <Header>
@@ -33,7 +33,7 @@ const Search: React.FC<ISearch> = ({ books, loading }: ISearch) => {
           <Icon name="arrow-back-outline" size={25} color="#463d06" />
         </ButtonBack>
         <SearchForm>
-          <SearchInput />
+          <SearchInput placeholder="Pesquise por titulos" onChangeText={(term) => setTerm(term)} />
         </SearchForm>
       </Header>
       <Content>
@@ -45,12 +45,10 @@ const Search: React.FC<ISearch> = ({ books, loading }: ISearch) => {
         ListFooterComponent={() => {
           if (loading) {
             return (<Loading size="large" color="#000"/>)
+          } else if (books.length) {
+            return <LoadMoreButton onPress={() => alert('teste')} />
           } else {
-            return (
-              <ButtonLoadMore>
-                <ButtonLoadMoreText>Carregar Mais</ButtonLoadMoreText>
-              </ButtonLoadMore>
-            )
+            return (<></>)
           }
         }}
       >

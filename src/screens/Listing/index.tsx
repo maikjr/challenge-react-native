@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import api from '../../services/api'
 
-import LinstingRender from './ListingRender'
+import ListingRender from './ListingRender'
 
 export type IBook = {
   id: string;
@@ -12,12 +12,11 @@ export type IBook = {
 const Listing: React.FC = () => {
   const [getLoadingScreen, setLoadingScreen] = useState(true)
   const [getBooks, setBooks] = useState<IBook[]>([])
-  const [getTerm, setTerm] = useState('harry potter')
 
   useEffect(() => {
     async function fetchVolumes () {
       try {
-        const response = await api.get(`/volumes?q=${getTerm}`)
+        const response = await api.get('/volumes?q=harry potter')
         const { items } = response.data
         setBooks(items)
       } catch (err) {}
@@ -27,11 +26,9 @@ const Listing: React.FC = () => {
   }, [])
 
   return (
-    <LinstingRender
+    <ListingRender
       books={getBooks}
       loading={getLoadingScreen}
-      setTerm={setTerm}
-      getTerm={getTerm}
     />
   )
 }
