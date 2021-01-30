@@ -40,7 +40,9 @@ const Search: React.FC = () => {
   }, [getTerm])
 
   useEffect(() => {
-    loadMoreVolumes()
+    if (getPage > 0) {
+      loadMoreVolumes()
+    }
   }, [getPage])
 
   return <SearchRender

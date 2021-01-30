@@ -4,10 +4,9 @@ const fonts = {
   medium: 12,
   small: 11,
   tiny: 10,
-  fontLight: 'Light',
   fontRegular: 'Regular',
-  fontSemiBold: 'Semibold',
-  fontBold: 'Bold',
-};
+  fontMedium: 'Medium',
+  fontBold: 'Bold'
+}
 
-export default fonts;
+export default fonts
